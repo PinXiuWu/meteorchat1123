@@ -9,30 +9,68 @@ msgRecords = new Mongo.Collection("msgRecords"); //請勿變更此行
 var engLexicon = new Mongo.Collection("engLexicon");
 Meteor.startup(function(){
   //所有在程式啟動時會在伺服器執行的程式碼都會放在這裡
-  engLexicon.remove({});
+  var str1 = "Where were you yesterday?";
+  var str2 = "Where did you go yesterday?";
+  var str3 = "Did you go anywhere yesterday?";
+  //var strKeyWord = "microsoft";
 
-  var lexiconList = Assets.getText("engLexicon_1000.csv");
+  var regexpKeyWord = /where*(.*)you(.*)where*/i;  //括號(.*)表示you之後符合的字
+  //var regexpKeyWord = /"Check that song[Hello]!"/g;
+  //var regexpKeyWord = /(12)|(67)/g;  //g:global search; i:insensitive(不管大小寫); i,g的位子可以互換;
+   //  /./中的.代表任何一個字元; /\w/的\w代表任意字元不含符號; \W2代表任意不是字的字元,可能是空格或符號;
+   // \d代表所有是數字的字元; \D代表所有符合不是數字的字元
+   //[abc]代表符合abd的字元都可以...; [a-z]表示a到z; /S/代表不是空格的字元; /^[abc]代表排除abc後的字元;
+   ///[\w+]代表方括號中實際的"每個字元"
+   // /*/代表可以有字元也可以沒有字元
+   // /|/代表or的意思,(12)|(67)代表12或67, 如果是12|67只會判斷1後跟著2或6,然後跟著7
 
-  if(lexiconList.indexOf("\r\n") > -1) {
-    lexiconList.replace(/\r\n/g, "\n");
-  }
-  lexiconList = lexiconList.split("\r\n");
-  for(index=0 ; index<lexiconList.length ; index++)
-  {
-     lexiconList[index] = lexiconList[index].split(",");
-  }
+//  console.log("String: "+str.replace(strKeyWord, "Ha ha"));
+//  console.log("Regexp: "+str.replace(regexpKeyWord, "Ha ha"));
+//  console.log("RegExp: "+str.match(regexpKeyWord, "Ha ha"));
+//  console.log("RegExp: "+str.match(regexpKeyWord));
+  console.log("Str1: "+str1.match(regexpKeyWord));
+  console.log("Str2: "+str2.match(regexpKeyWord));
+  console.log("Str3: "+str3.match(regexpKeyWord));
 
-  var colNames = lexiconList[0];
-  for(row=1 ; row<lexiconList.length ; row++)
-  {
-    var word = {};
-    for(col=0 ; col<lexiconList[row].length ; col++)
-    {
-      var colName = colNames[col];
-      word[colName] = lexiconList[row][col];
-    }
-    engLexicon.insert(word);
-  };
+  var weatherStr1 = "What is the weather in Taipei tomorrow?";
+  var weatherStr2 = "Is the weather going to be bad in Taipei?"
+  var weatherStr3 = "I wonder what the temperature will be in Taipei tomorrow."
+  var regexpKeyWordOfWeather = /.*(temperature|weather).*in (\w+)/i;
+  var regexpKeyWordOfWeather2 = /(temperature|weather).*in (\w+)/i;  //g要去掉 後面才會分別顯示符合的字
+
+
+  console.log("weatherStr1: "+weatherStr1.match(regexpKeyWordOfWeather));
+  console.log("weatherStr2: "+weatherStr2.match(regexpKeyWordOfWeather));
+  console.log("weatherStr3: "+weatherStr3.match(regexpKeyWordOfWeather));
+
+
+
+
+
+//  engLexicon.remove({});
+
+//  var lexiconList = Assets.getText("engLexicon_1000.csv");
+
+//  if(lexiconList.indexOf("\r\n") > -1) {
+//    lexiconList.replace(/\r\n/g, "\n");
+//  }
+//  lexiconList = lexiconList.split("\r\n");
+//  for(index=0 ; index<lexiconList.length ; index++)
+//  {
+//     lexiconList[index] = lexiconList[index].split(",");
+//  }
+
+//  var colNames = lexiconList[0];
+//  for(row=1 ; row<lexiconList.length ; row++)
+//  {
+//    var word = {};
+//    for(col=0 ; col<lexiconList[row].length ; col++)
+//    {
+//      var colName = colNames[col];
+//      word[colName] = lexiconList[row][col];
+//    }
+//    engLexicon.insert(word);
+//  };
 
 });
 
