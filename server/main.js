@@ -43,35 +43,7 @@ Meteor.startup(function(){
   console.log("weatherStr2: "+weatherStr2.match(regexpKeyWordOfWeather));
   console.log("weatherStr3: "+weatherStr3.match(regexpKeyWordOfWeather));
 
-
-
-
-
-//  engLexicon.remove({});
-
-//  var lexiconList = Assets.getText("engLexicon_1000.csv");
-
-//  if(lexiconList.indexOf("\r\n") > -1) {
-//    lexiconList.replace(/\r\n/g, "\n");
-//  }
-//  lexiconList = lexiconList.split("\r\n");
-//  for(index=0 ; index<lexiconList.length ; index++)
-//  {
-//     lexiconList[index] = lexiconList[index].split(",");
-//  }
-
-//  var colNames = lexiconList[0];
-//  for(row=1 ; row<lexiconList.length ; row++)
-//  {
-//    var word = {};
-//    for(col=0 ; col<lexiconList[row].length ; col++)
-//    {
-//      var colName = colNames[col];
-//      word[colName] = lexiconList[row][col];
-//    }
-//    engLexicon.insert(word);
-//  };
-
+  //loadEngLexicon();
 });
 
 //所有大腦(伺服器)的功能都會在這裡定義
@@ -123,6 +95,11 @@ var processMsg = function(msg) {  //請勿變更此行
   if(processResults === "")
   {
     processResults = posSearch(msg, engLexicon);
+  }
+
+  if(processResults === "")
+  {
+    processResults = weatherInfo(msg);
   }
   //目前完全沒有訊息處理。所以processResults一定是空字串
   //這邊在判斷processResults是空字串的時候會放進一個預設的訊息
