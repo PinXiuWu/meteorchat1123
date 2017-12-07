@@ -1,4 +1,4 @@
-loadEngLexicon = function() {
+loadEngLexicon = function(engLexicon) {
   engLexicon.remove({});
 
   var lexiconList = Assets.getText("engLexicon_1000.csv");

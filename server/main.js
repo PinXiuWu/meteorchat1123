@@ -28,22 +28,22 @@ Meteor.startup(function(){
 //  console.log("Regexp: "+str.replace(regexpKeyWord, "Ha ha"));
 //  console.log("RegExp: "+str.match(regexpKeyWord, "Ha ha"));
 //  console.log("RegExp: "+str.match(regexpKeyWord));
-  console.log("Str1: "+str1.match(regexpKeyWord));
-  console.log("Str2: "+str2.match(regexpKeyWord));
-  console.log("Str3: "+str3.match(regexpKeyWord));
+//  console.log("Str1: "+str1.match(regexpKeyWord));
+//  console.log("Str2: "+str2.match(regexpKeyWord));
+//  console.log("Str3: "+str3.match(regexpKeyWord));
 
-  var weatherStr1 = "What is the weather in Taipei tomorrow?";
-  var weatherStr2 = "Is the weather going to be bad in Taipei?"
-  var weatherStr3 = "I wonder what the temperature will be in Taipei tomorrow."
-  var regexpKeyWordOfWeather = /.*(temperature|weather).*in (\w+)/i;
-  var regexpKeyWordOfWeather2 = /(temperature|weather).*in (\w+)/i;  //g要去掉 後面才會分別顯示符合的字
+//  var weatherStr1 = "What is the weather in Taipei tomorrow?";
+//  var weatherStr2 = "Is the weather going to be bad in Taipei?"
+//  var weatherStr3 = "I wonder what the temperature will be in Taipei tomorrow."
+//  var regexpKeyWordOfWeather = /.*(temperature|weather).*in (\w+)/i;
+//  var regexpKeyWordOfWeather2 = /(temperature|weather).*in (\w+)/i;  //g要去掉 後面才會分別顯示符合的字
 
 
-  console.log("weatherStr1: "+weatherStr1.match(regexpKeyWordOfWeather));
-  console.log("weatherStr2: "+weatherStr2.match(regexpKeyWordOfWeather));
-  console.log("weatherStr3: "+weatherStr3.match(regexpKeyWordOfWeather));
+//  console.log("weatherStr1: "+weatherStr1.match(regexpKeyWordOfWeather));
+//  console.log("weatherStr2: "+weatherStr2.match(regexpKeyWordOfWeather));
+//  console.log("weatherStr3: "+weatherStr3.match(regexpKeyWordOfWeather));
 
-  //loadEngLexicon();
+//loadEngLexicon(engLexicon);
 });
 
 //所有大腦(伺服器)的功能都會在這裡定義
