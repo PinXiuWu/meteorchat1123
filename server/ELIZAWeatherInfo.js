@@ -28,13 +28,45 @@ weatherInfo = function(msg) {
       wtInfoURL = "http://api.openweathermap.org/data/2.5/forecast?APPID="+
        APIKey+"&q="+targetCity+"&units=metric&cnt=24";
     }
+    var wtData, wtDataMsg;
 
-    HTTP.get(wtInfoURL, processWtData);
+
+    try
+    {
+        wtData = HTTP.get(wtInfoURL);
+        wtData = wtData.data;
+        if (time === "present")
+        {
+          wtDataMsg = "It is "+wtData.weather[0].description+", and the current temperature is "+wtData.main.temp+"C.";
+        }
+        else
+        {
+          wtData = wtData.list[23];
+          wtDataMsg = "It is "+wtData.weather[0].description+" tomorrow, and the expected temperature is "+wtData.main.temp+"C.";
+
+          //console.log(wtData);
+        }
+        return wtDataMsg;
+    }
+    catch (error)
+    {
+      console.log(error);
+      if(error.response.data.cod === "404")
+      {
+        return "Sorry, I don't know this city."
+      }
+      else
+      {
+        return "Sorry, you need to improve your internet connection. "
+      }
+    }
+
+
   }
 };
 
 
-var processWtData = function(error, result) {
+/*var processWtData = function(error, result) {
   var wtData;
   if(error !== null)
   {
@@ -59,4 +91,4 @@ var processWtData = function(error, result) {
      ". The temp max is "+wtData.main.temp_max+"."
      +" The wind is "+wtData.wind.speed+" m/ps.");
   }
-};
+};*/

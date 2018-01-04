@@ -7,14 +7,20 @@
 //把msgRecords的mongoDB資料庫連結到msgRecords這個伺服器端的Global Variable
 msgRecords = new Mongo.Collection("msgRecords"); //請勿變更此行
 var engLexicon = new Mongo.Collection("engLexicon");
+nGramDB = new Mongo.Collection("nGramDB");
+
+
 Meteor.startup(function(){
   //所有在程式啟動時會在伺服器執行的程式碼都會放在這裡
-  var str1 = "Where were you yesterday?";
-  var str2 = "Where did you go yesterday?";
-  var str3 = "Did you go anywhere yesterday?";
+
+  //loadEngLexicon(engLexicon);
+  //loadTrainingData();
+  //var str1 = "Where were you yesterday?";
+  //var str2 = "Where did you go yesterday?";
+  //var str3 = "Did you go anywhere yesterday?";
   //var strKeyWord = "microsoft";
 
-  var regexpKeyWord = /where*(.*)you(.*)where*/i;  //括號(.*)表示you之後符合的字
+  //var regexpKeyWord = /where*(.*)you(.*)where*/i;  //括號(.*)表示you之後符合的字
   //var regexpKeyWord = /"Check that song[Hello]!"/g;
   //var regexpKeyWord = /(12)|(67)/g;  //g:global search; i:insensitive(不管大小寫); i,g的位子可以互換;
    //  /./中的.代表任何一個字元; /\w/的\w代表任意字元不含符號; \W2代表任意不是字的字元,可能是空格或符號;
@@ -101,6 +107,12 @@ var processMsg = function(msg) {  //請勿變更此行
   {
     processResults = weatherInfo(msg);
   }
+
+  if(processResults === "")
+  {
+    processResults = produceAIArticle(msg);
+  }
+
   //目前完全沒有訊息處理。所以processResults一定是空字串
   //這邊在判斷processResults是空字串的時候會放進一個預設的訊息
   if(processResults === "")

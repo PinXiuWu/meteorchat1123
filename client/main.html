@@ -9,11 +9,20 @@
 </head>
 
 <body>
-  <center>
-    <h1>This is my ELIZA!</h1>
+  <div id = "titleSection">
+    ELIZA: A Chatbot
+  </div>
+  <div id = "contentSection">
+    <div id = "introSection">
+    <p id = "intro">
+      It is a chatbot named <span class = "highlight">ELIZA</span>, who is not smart enough.(As you can see)<br>
+      <a href ="http://en.wikipedia.org/wiki/ELIZA" target = "_blank">ELIZA's Story on Wikipedia</a>
+
+    </p>
+  </div>
     <form>
       <p>
-        <textarea id = "conversationBox" rows = "20" cols = "80" readOnly>{{allMsg}}</textarea>
+        <textarea id = "conversationBox" rows = "80" cols = "100" readOnly>{{allMsg}}</textarea>
       </p>
       <p>
         <input type = "text" id = "myMsg" size = "80" placeholder = "Enter Your Message" />
@@ -23,5 +32,27 @@
         <input type = "reset" id = "resetMsg" value = "Reset" />
       </p>
     </form>
-  </center>
+  </div>
+  <div id = "submittingMsg">
+    <div id = "submittingMsgContent">
+      I'm submitting your message...
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>

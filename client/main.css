@@ -1,1 +1,136 @@
 /* CSS declarations go here */
+body {
+  font-family: "Century Schoolbook", sans-serif;
+  text-align: center;
+  color: #7c5a2f;
+
+}
+
+a {
+  color: #683d06;
+  text-decoration: none;
+}
+
+a:visited{
+  color: white;
+}
+
+.highlight {
+  color: #B22d22;
+  background-color:  ;
+  font-weight: bold;
+
+}
+
+#titleSection {
+  position: fixed;
+  top: 0;
+  height: 64px;
+  width: 100%;
+  background-color: #B22d22;
+  color: #FFFFFF;
+  font-family: "Castellar", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 64px;
+}
+
+
+
+#contentSection {
+  margin: 64px 0 0 0;
+  padding: 20px;
+  background-color:  ;
+  color:
+}
+
+#introSection {
+  display: inline-block;
+  width: 600px;
+  padding: 5px;
+  border: 2px dotted #B22d22;
+  border-radius:  5px ;
+  color: inherit;
+  font-family:
+  font-size: 16px;
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+#submitMsg, #resetMsg {
+  background-color: #efd9c4;
+  color: #9b7a5b;
+  font-family: "Castellar";
+  font-size: 14px;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+#submitMsg:hover, #resetMsg:hover {
+  background-color: #9b7a5b;
+  color: #efd9c4;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#conversationBox, #myMsg {
+  color: black;
+
+}
+
+#conversationBox {
+  height: 300px;
+  width: 600px;
+  padding: 5px;
+  border: 1px solid #B22d22;
+  font-family: "Trebuchet MS";
+  font-size: 12px;
+  line-height:18px
+}
+
+#myMsg {
+  height:18px;
+  width: 600px;
+  padding: 2px;
+  border: 1px solid #B22d22;
+  font-size: 14px;
+  padding:4px;
+  border-radius: 3px;
+
+
+}
+#submittingMsg {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+  display: none;
+}
+
+
+#submittingMsgContent {
+  position: relative;
+  transform: translate(-50%, -50%);
+  padding: 2px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-family: "Trebuchet MS";
+  font-size: 24px
+}
+
+
+
+#intro {
+  margin: 10px 100px 10px 100px;
+  padding: 0px 20px 0px 20px;
+  text-align: middle;
+
+}
